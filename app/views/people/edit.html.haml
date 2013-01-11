@@ -1,0 +1,27 @@
+%h1 Editing person
+= render 'form'
+
+= form_for(Visit.new) do |f|
+  .group
+    = f.label :date_of_visit
+    = f.date_select :date_of_visit
+  .group
+    = f.label :note
+    = f.text_area :note, :rows => 3
+  = f.hidden_field :person_id, :value => @person.id
+  = f.submit
+
+- @person.visits.each do |visit|
+  .visit
+    .group
+      %label="Date of visit"
+      %div=visit.date_of_visit
+    .group
+      %label="Note"
+      %div=visit.note
+
+%br
+%br
+%br
+
+\#{link_to 'Back', people_path}
