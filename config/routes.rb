@@ -1,4 +1,7 @@
 Svdp::Application.routes.draw do
+  resources :people
+
+
   devise_for :users
 
   # The priority is based upon order of creation:
