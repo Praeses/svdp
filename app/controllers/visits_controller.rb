@@ -41,6 +41,9 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.save
+        format.html {
+          redirect_to :controller => 'people', :action => 'edit', :id => @visit.person_id
+        }
         format.json { render json: @visit, status: :created, location: @visit }
       else
         format.json { render json: @visit.errors, status: :unprocessable_entity }
