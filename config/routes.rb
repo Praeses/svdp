@@ -1,8 +1,8 @@
 Svdp::Application.routes.draw do
   resources :people
 
-
-  devise_for :users
+  devise_for :users, :skip => :registrations
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
