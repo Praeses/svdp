@@ -1,0 +1,121 @@
+.head
+{ background-color:#111; }
+
+.head
+{ background-color:rgba(10,10,10,0.3); }
+
+.content
+{ background-color:#D2C6BD }
+
+html
+{ background:url(/assets/noisy.png) }
+
+.content
+{border-radius:3px}
+
+tr
+{border-bottom:1px solid #aaa}
+
+table
+{border-collapse:collapse}
+
+th
+{text-align:left}
+
+.content
+{box-shadow:0px 10px 20px rgba(0,0,0, 0.5)}
+
+html
+{ color:#dcdcdc; }
+
+.content
+{ color:#222; }
+
+a
+{color: #fff}
+
+a:hover
+{color: #ccc}
+
+.content a
+{color: #500}
+
+a:hover
+{color: #222}
+
+a {text-decoration: none}
+
+html
+{ font-family:'Donegal One', serif; }
+
+h1
+{ font-family:'Modern Antiqua', cursive; }
+
+.head .logo
+{ float:left }
+
+.head .user
+{ float:right }
+html
+{ color:#dcdcdc; }
+
+.content
+{ color:#222; }
+
+a
+{color: #fff}
+
+a:hover
+{color: #ccc}
+
+.content a
+{color: #500}
+
+a:hover
+{color: #222}
+
+a {text-decoration: none}
+
+html
+{ font-family:'Donegal One', serif; }
+
+h1
+{ font-family:'Modern Antiqua', cursive; }
+
+.head .logo
+{ float:left }
+
+.head .user
+{ float:right }
+
+.head
+{padding: 1em }
+
+.content
+{padding: 2em }
+
+.content
+{margin-top: 15em }
+
+.head,
+.content
+{position: absolute }
+
+.head
+{ top:0 }
+
+.head
+{ left:0 }
+
+.head
+{ right:0 }
+
+.content
+{ left:10em }
+
+.content
+{ right:10em }
+
+table
+{width:100%}
+
