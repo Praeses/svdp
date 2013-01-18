@@ -4,6 +4,10 @@ gem 'rails', '3.2.11'
 gem 'devise'
 gem 'haml-rails'
 
+group :production do
+  gem 'activerecord-postgresql-adapter'
+end
+
 group :development do
   gem 'sqlite3'
 end
