@@ -1,6 +1,44 @@
 %h1 Editing person
 = render 'form'
 
+= form_for(Member.new) do |f|
+  .group
+    = f.label :first_name
+    = f.text_field :first_name
+  .group
+    = f.label :last_name
+    = f.text_field :last_name
+  .group
+    = f.label :Date_of_Birth
+    = f.date_select :dob, :start_year => Time.now.year - 110, :end_year => Time.now.year
+  .group
+    = f.label :Is_Male
+    = f.check_box :male
+
+  = f.hidden_field :person_id, :value => @person.id
+  = f.submit "Add Family Member"
+
+%table
+  %tr
+    %th First name
+    %th Last name
+    %th Dob
+    %th Sex
+    %th
+
+  - @person.members.each do |member|
+    %tr
+      %td= member.first_name
+      %td= member.last_name
+      %td= member.dob.try :to_date
+      %td= member.male ? "M" : "F"
+      %td= link_to 'Remove', member, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+%br
+%br
+
+
 = form_for(Visit.new) do |f|
   .group
     = f.label :date_of_visit

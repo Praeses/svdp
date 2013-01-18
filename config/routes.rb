@@ -1,4 +1,7 @@
 Svdp::Application.routes.draw do
+  resources :members
+
+
   resources :visits
 
 
