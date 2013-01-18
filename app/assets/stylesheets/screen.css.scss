@@ -4,7 +4,7 @@
 .head
 { background-color:rgba(10,10,10,0.3); }
 
-.content
+.content, .devise
 { background-color:#D2C6BD }
 
 html
@@ -28,7 +28,7 @@ th
 html
 { color:#dcdcdc; }
 
-.content
+.content, .devise
 { color:#222; }
 
 a
@@ -37,10 +37,10 @@ a
 a:hover
 {color: #ccc}
 
-.content a
+.content a, .devise a
 {color: #500}
 
-a:hover
+a:hover, .devise a:hover
 {color: #222}
 
 a {text-decoration: none}
@@ -115,6 +115,12 @@ h1
 
 .content
 { right:10em }
+
+.devise
+{margin:auto}
+
+.devise
+{ width: 30em }
 
 table
 {width:100%}
