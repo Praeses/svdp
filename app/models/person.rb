@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  attr_accessible :address, :church, :first_name, :last_name
+  attr_accessible :address, :church, :first_name, :last_name, :phone
 
   has_many :visits
   has_many :members
