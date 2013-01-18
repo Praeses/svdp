@@ -10,7 +10,7 @@
 html
 { background:url(/assets/noisy.png) }
 
-.content
+.content, .devise
 {border-radius:3px}
 
 tr
@@ -19,13 +19,16 @@ tr
 .edit_group
 {border-bottom:1px solid #888}
 
+.devise
+{border:1px solid #888}
+
 table
 {border-collapse:collapse}
 
 th
 {text-align:left}
 
-.content
+.content, .devise
 {box-shadow:0px 10px 20px rgba(0,0,0, 0.5)}
 
 html
@@ -78,6 +81,9 @@ a:hover, .devise a:hover
 {color: #222}
 
 a {text-decoration: none}
+
+.devise .logo
+{float:right}
 
 html
 { font-family:'Donegal One', serif; }
@@ -125,14 +131,17 @@ h1
 .head
 {padding: 1em }
 
-.content
+.content, .devise
 {padding: 2em }
 
 .edit_group
 {padding:3em 0 2em 0}
 
-.content
-{margin-top: 15em }
+.devise
+{margin:auto}
+
+.content, .devise
+{margin-top: 10em }
 
 .head,
 .content
@@ -154,10 +163,7 @@ h1
 { right:10em }
 
 .devise
-{margin:auto}
-
-.devise
-{ width: 30em }
+{ width: 40em }
 
 table
 {width:100%}
