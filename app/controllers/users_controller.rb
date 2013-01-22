@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         @user.send_reset_password_instructions
-        format.html { redirect_to [:edit, @user], :notice => 'User was successfully created.' }
+        format.html { redirect_to :users, :notice => 'User was successfully updated.' }
         format.json { render :json => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
