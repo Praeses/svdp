@@ -5,27 +5,31 @@
 <br />
 
 <table>
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Address</th>
-    <th>Phone</th>
-    <th>Visiting Conference</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Visiting Conference</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-<% @people.each do |person| %>
-  <tr>
-    <td><%= person.first_name %></td>
-    <td><%= person.last_name %></td>
-    <td><%= person.address %></td>
-    <td><%= person.phone %></td>
-    <td><%= person.church %></td>
-    <td><%= link_to 'Edit', edit_person_path(person) %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.first_name %></td>
+        <td><%= person.last_name %></td>
+        <td><%= person.address %></td>
+        <td><%= person.phone %></td>
+        <td><%= person.church %></td>
+        <td><%= link_to 'Edit', edit_person_path(person) %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 

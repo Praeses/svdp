@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
 
   layout :layout_by_resource
-  before_filter :authenticate_user!, :redirect_https
+  before_filter :authenticate_user!
 
 
   def layout_by_resource
@@ -10,11 +12,7 @@ class ApplicationController < ActionController::Base
     "application"
   end
 
-  def redirect_https
-    return true unless Rails.env.production?
-    redirect_to :protocol => "https://" unless request.ssl?
-    return true
-  end
-
-
 end
+
+
+
