@@ -13,20 +13,14 @@
         %a{:href => "/" }
           = image_tag 'logo.png'
 
-      %h1="The Society of St. Vincent de Paul"
+      %h1= t "svdp"
 
       - if user_signed_in?
         .user{'data-no-turbolink' => true}
           %span.display= current_user.display_name
-          = link_to 'Logout', destroy_user_session_path, :method => :delete, :class => 'logout'
+          = link_to t 'Logout', destroy_user_session_path, :method => :delete, :class => 'logout'
 
     .content
       %p.notice= notice
       %p.alert= alert
       = yield
-
--#:javascript
--#  setTimeout(
--#  function(){
--#  window.location.reload(true);
--#  },1000)

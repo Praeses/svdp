@@ -3,8 +3,8 @@ class CreatePeople < ActiveRecord::Migration
     create_table :people do |t|
       t.string :first_name
       t.string :last_name
-      t.string :address
-      t.string :church
+      t.string :phone
+      t.references :family
 
       t.timestamps
     end

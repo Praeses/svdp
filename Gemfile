@@ -23,6 +23,9 @@ end
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'sqlite3'
+  gem 'ffaker', require: false
+  gem 'pry-rails'
+  gem 'hirb', require: false
 end
 
 
@@ -36,3 +39,4 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+

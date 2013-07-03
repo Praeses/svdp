@@ -1,5 +1,7 @@
 Svdp::Application.routes.draw do
-  resources :members
+  resources :addresses
+
+  resources :families
   resources :visits
   resources :people
 

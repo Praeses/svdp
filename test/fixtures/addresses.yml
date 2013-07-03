@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  addressable_id: 1
+  addressable_type: MyString
+  line_1: MyString
+  line_2: MyString
+  line_3: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+
+two:
+  addressable_id: 1
+  addressable_type: MyString
+  line_1: MyString
+  line_2: MyString
+  line_3: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
