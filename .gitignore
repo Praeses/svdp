@@ -8,7 +8,6 @@
 /.bundle
 /.gems
 /.rbx
-/bin
 
 # database.
 /db/*.sqlite3
