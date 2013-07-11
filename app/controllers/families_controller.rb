@@ -15,6 +15,8 @@ class FamiliesController < ApplicationController
   # GET /families/new
   def new
     @family = Family.new
+    @family.save
+    redirect_to :action => :edit, :id => @family.id
   end
 
   # GET /families/1/edit
