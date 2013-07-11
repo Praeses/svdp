@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :visits
   has_many :people, through: :visits
+  has_many :case_files, through: :visits
 
   # Check to determine if we have a full name or not
   #

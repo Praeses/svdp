@@ -5,5 +5,6 @@ class Person < ActiveRecord::Base
   has_many :addresses, as: :addressable
   has_many :visits
   has_many :users, through: :visits
+  has_many :case_files, through: :visits
 
 end
