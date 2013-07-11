@@ -15,12 +15,12 @@ class FamiliesController < ApplicationController
   # GET /families/new
   def new
     @family = Family.new
-    @family.save
-    redirect_to :action => :edit, :id => @family.id
+    @family.addresses << Address.new
   end
 
   # GET /families/1/edit
   def edit
+    @family.addresses << Address.new if @family.addresses.empty?
   end
 
   # POST /families
@@ -71,6 +71,7 @@ class FamiliesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def family_params
-      params.require(:family).permit(:name)
+      params.require(:family).permit(:name,
+        addresses_attributes: [:line_1, :line_2, :line_3, :city, :state, :zip ] )
     end
 end
