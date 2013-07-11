@@ -1,13 +1,19 @@
 Svdp::Application.routes.draw do
-  resources :addresses
+  scope ':username' do
+    root to: "searches#index"
+    resources :searches, param: 'term'
 
-  resources :families
-  resources :visits
-  resources :people
+    resources :addresses
+
+    resources :families
+    resources :visits
+    resources :people
+    resources :users
+
+  end
 
   devise_for :users, :skip => :registrations
-  resources :users
 
-  root :to => "people#index"
+  root to: "searches#index", as: :search_page
 
 end

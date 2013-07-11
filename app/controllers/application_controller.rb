@@ -12,6 +12,17 @@ class ApplicationController < ActionController::Base
     "application"
   end
 
+
+  helper_method :url_for
+  def default_url_options
+    if current_user
+      {username: current_user.username}
+    else
+      {}
+    end
+  end
+
+
 end
 
 

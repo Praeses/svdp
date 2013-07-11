@@ -18,7 +18,7 @@
       - if user_signed_in?
         .user{'data-no-turbolink' => true}
           %span.display= current_user.display_name
-          = link_to t 'Logout', destroy_user_session_path, :method => :delete, :class => 'logout'
+          = link_to t('Logout'), destroy_user_session_path, :method => :delete, :class => 'logout'
 
     .content
       %p.notice= notice

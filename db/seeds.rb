@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+%w( lex.childs@praeses.com zac.kleinpeter@praeses.com ).each do |email|
+  u          = User.new
+  u.username = email.split('.').first
+  u.email    = email
+  u.password = 'letmein1234'
+  u.save!
+end
