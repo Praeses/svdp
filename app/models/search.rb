@@ -9,7 +9,7 @@ class Search < ActiveRecord::Base
   end
 
   def klasses
-    [Family,Address]
+    [Family,Address,Person]
   end
 
   def call

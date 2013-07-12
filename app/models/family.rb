@@ -1,7 +1,7 @@
 class Family < ActiveRecord::Base
   has_many :case_files
   has_many :people
-  has_one :primay_addresses, as: :addressable
+  has_one :primay_address, as: :addressable, class_name: Address
   has_many :addresses, as: :addressable
 
   validates :name, presence:true
@@ -19,4 +19,22 @@ class Family < ActiveRecord::Base
     end
   end
 
+  def to_s
+    name
+  end
+
+  def extra_to_s
+  end
+
+  def family_to_s
+    name
+  end
+
+  def persion_to_s
+    people.map(&:to_s).join(',')
+  end
+
+  def address_to_s
+    primay_address.to_s
+  end
 end
