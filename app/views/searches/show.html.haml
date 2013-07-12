@@ -3,5 +3,14 @@
     = f.search_field :term
     = f.submit
 
-%h1= @search.id
-%h1= @search.term
+%ul
+  - @results.each do |key,values|
+    - next if values.empty?
+    %li
+      %h3= key.to_s
+      %ul
+        - values.each do |val|
+          %li= val.to_s
+          %li== Family:  #{val.try :family_to_s}
+          %li== Members: #{val.try :persion_to_s}
+          %li== Address: #{val.try :address_to_s}

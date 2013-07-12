@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %b Firstname:
+  = @person.first_name
+%p
+  %b Lastname:
+  = @person.last_name
+%p
+  %b Address:
+  = @person.address
+%p
+  %b Church:
+  = @person.church
+= link_to 'Edit', edit_person_path(@person)
+|
+\#{link_to 'Back', people_path}

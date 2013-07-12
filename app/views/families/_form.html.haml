@@ -8,6 +8,80 @@
 
   .field
     = f.label :name
-    = f.text_area :name
+    = f.text_field :name
+
+  %br
+  %br
+
+  = f.fields_for :addresses do |address_field|
+    .field
+      = address_field.label :line_1
+      = address_field.text_field :line_1
+    .field
+      = address_field.label :line_2
+      = address_field.text_field :line_2
+    .field
+      = address_field.label :line_3
+      = address_field.text_field :line_3
+    .field
+      = address_field.label :city
+      = address_field.text_field :city
+    .field
+      = address_field.label :state
+      = address_field.text_field :state
+    .field
+      = address_field.label :zip
+      = address_field.text_field :zip
+
+  %br
+  %br
+
+  -if @family.id
+    = link_to 'Add Family Member', new_person_path({:family_id => @family.id})
+    %br
+    %table
+      %tr
+        %th='First Name'
+        %th='Last Name'
+        %th='Phone'
+        %th='SSN Last-4'
+        %th=''
+      - @family.people.each do |person|
+        %tr
+          %td=person.first_name
+          %td=person.last_name
+          %td=person.phone
+          %td=person.ssn
+          %td
+            = link_to 'Edit Person', edit_person_path(person,{:family_id => @family.id} )
+
+
+  %br
+  %br
+
+
+  -if @family.id
+    = link_to 'Add Case File', new_case_file_path({:family_id => @family.id})
+    %br
+    %table
+      %tr
+        %th='Number'
+        %th='Date Of Visit'
+        %th='Created'
+        %th=''
+      - @family.case_files.sort_by{|c| [:date] }.reverse.each do |case_file|
+        %tr
+          %td=case_file.number
+          %td=case_file.date.to_date
+          %td=case_file.created_at.to_date
+          %td
+            = link_to 'Edit Case File', edit_case_file_path(case_file,{:family_id => @family.id} )
+
+
+  %br
+  %br
+  %br
+  %br
+
   .actions
     = f.submit 'Save'

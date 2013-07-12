@@ -1,24 +1,22 @@
 class FamiliesController < ApplicationController
   before_action :set_family, only: [:show, :edit, :update, :destroy]
 
-  # GET /families
-  # GET /families.json
-  def index
-    @families = Family.all
-  end
 
   # GET /families/1
   # GET /families/1.json
   def show
+    redirect_to [:edit, @family]
   end
 
   # GET /families/new
   def new
     @family = Family.new
+    @family.addresses << Address.new
   end
 
   # GET /families/1/edit
   def edit
+    @family.addresses << Address.new if @family.addresses.empty?
   end
 
   # POST /families
@@ -69,6 +67,7 @@ class FamiliesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def family_params
-      params.require(:family).permit(:name)
+      params.require(:family).permit(:name,
+        addresses_attributes: [:line_1, :line_2, :line_3, :city, :state, :zip ] )
     end
 end

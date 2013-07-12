@@ -1,4 +1,8 @@
 class PeopleController < ApplicationController
+
+  before_action :set_family, only: [:show, :edit, :update, :destroy, :create]
+  before_action :set_person, only: [:show, :edit, :update, :destroy ]
+
   # GET /people
   # GET /people.json
   def index
@@ -13,8 +17,6 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
-    @person = Person.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @person }
@@ -34,7 +36,6 @@ class PeopleController < ApplicationController
 
   # GET /people/1/edit
   def edit
-    @person = Person.find(params[:id])
     @visits = Visit.with_person_id(params[:id]).order("date_of_visit DESC")
   end
 
@@ -42,26 +43,19 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = Person.new(params[:person])
-
-    respond_to do |format|
-      if @person.save
-        format.html { redirect_to [:edit, @person], :notice => 'Person was successfully created.' }
-        format.json { render json: @person, status: :created, location: @person }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
-      end
+    @family.people << @person
+    if @person.save and @family.save
+      redirect_to [:edit, @family]
     end
   end
 
   # PUT /people/1
   # PUT /people/1.json
   def update
-    @person = Person.find(params[:id])
-
     respond_to do |format|
       if @person.update_attributes(params[:person])
-        format.html { redirect_to :people, :notice => 'User was successfully updated.' }
+        format.html { redirect_to [:edit, @family], :notice => '' }
+        #format.html { redirect_to :people, :notice => 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -73,12 +67,24 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   # DELETE /people/1.json
   def destroy
-    @person = Person.find(params[:id])
     @person.destroy
-
     respond_to do |format|
       format.html { redirect_to people_url }
       format.json { head :no_content }
     end
   end
+
+
+  private
+
+  def set_family
+    @family = Family.find_by_id(params[:family_id])
+  end
+
+  def set_person
+    @person = Person.find_by_id(params[:id])
+  end
+
+
+
 end
