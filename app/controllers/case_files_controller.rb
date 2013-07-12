@@ -11,6 +11,7 @@ class CaseFilesController < ApplicationController
   # GET /case_files/new
   def new
     @case_file = CaseFile.new
+    @case_file.needs << Need.new
     @case_file.family = @family
   end
 
@@ -55,7 +56,7 @@ class CaseFilesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def case_file_params
       params.require(:case_file).permit(:number,:date, :comment,
-        addresses_attributes: [:line_1, :line_2, :line_3, :city, :state, :zip ] )
+        needs_attributes: [:need_tag_id,:description,:account,:action_tag_id,:action ] )
     end
 
 end

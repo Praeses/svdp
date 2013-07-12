@@ -36,6 +36,21 @@
         %td=person.ssn
 
 
+  %br
+  %br
+
+  = f.fields_for :needs do |need_fields|
+
+    .field
+      = need_fields.label :need
+      = need_fields.collection_select(:need_tag_id, Tag.all, :id, :name)
+      = need_fields.text_field :description
+      = need_fields.label :account
+      = need_fields.text_field :account
+    .field
+      = need_fields.collection_select(:action_tag_id, Tag.all, :id, :name)
+      = need_fields.label :action
+      = need_fields.text_field :action
 
   %br
 
