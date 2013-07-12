@@ -60,17 +60,24 @@
   %br
 
 
+  -if @family.id
+    = link_to 'Add Case File', new_case_file_path({:family_id => @family.id})
+    %br
+    %table
+      %tr
+        %th='Number'
+        %th='Date Of Visit'
+        %th='Created'
+        %th=''
+      - @family.case_files.sort_by{|c| [:date] }.reverse.each do |case_file|
+        %tr
+          %td=case_file.number
+          %td=case_file.date.to_date
+          %td=case_file.created_at.to_date
+          %td
+            = link_to 'Edit Case File', edit_case_file_path(case_file,{:family_id => @family.id} )
 
-  -#= link_to 'Add Case File', new_case_file_path({:family_id => @family.id})
-  -#%br
-  -#%table
-  -#  %tr
-  -#    %th='Number'
-  -#  - @family.case_files.each do |file|
-  -#    %tr
-  -#      %td=file.number
-  -#      %td
-  -#        = link_to 'Edit Case File', edit_case_file_path(person)
+
   %br
   %br
   %br
