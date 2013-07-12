@@ -1,0 +1,66 @@
+= form_for(@case_file) do |f|
+  - if @case_file.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@case_file.errors.count, "error")
+        prohibited this case file from being saved:
+      %ul
+        - @case_file.errors.full_messages.each do |msg|
+          %li= msg
+
+  %input{type: "hidden", value: @case_file.family.id, name: :family_id }
+
+  .field
+    = f.label :number
+    = f.text_field :number
+
+  .field
+    = f.label :date_of_visit
+    = f.date_field :date
+
+
+  %br
+  %h3='Family Members'
+
+  %table
+    %tr
+      %th='First Name'
+      %th='Last Name'
+      %th='Phone'
+      %th='SSN Last-4'
+    - @case_file.family.people.each do |person|
+      %tr
+        %td=person.first_name
+        %td=person.last_name
+        %td=person.phone
+        %td=person.ssn
+
+
+  %br
+  %br
+
+  = f.fields_for :needs do |need_fields|
+
+    .field
+      = need_fields.label :need
+      = need_fields.collection_select(:need_tag_id, Tag.all, :id, :name)
+      = need_fields.text_field :description
+      = need_fields.label :account
+      = need_fields.text_field :account
+    .field
+      = need_fields.collection_select(:action_tag_id, Tag.all, :id, :name)
+      = need_fields.label :action
+      = need_fields.text_field :action
+
+  %br
+
+  .field
+    = f.label :comments
+    = f.text_area :comment
+
+  %br
+  %br
+
+
+  .actions
+    = f.submit

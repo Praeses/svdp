@@ -12,3 +12,21 @@
   u.password = 'letmein1234'
   u.save!
 end
+
+Tag.create({name: "Gas"})
+Tag.create({name: "Electric"})
+Tag.create({name: "Rent"})
+Tag.create({name: "Water"})
+Tag.create({name: "Food"})
+Tag.create({name: "Furniture"})
+Tag.create({name: "Voucher"})
+Tag.create({name: "Christmas"})
+Tag.create({name: "Pharmacy"})
+Tag.create({name: "Medical"})
+Tag.create({name: "Legal"})
+
+Tag.create({name: "Other"})
+
+
+
+

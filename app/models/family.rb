@@ -4,6 +4,9 @@ class Family < ActiveRecord::Base
   has_one :primay_addresses, as: :addressable
   has_many :addresses, as: :addressable
 
+  validates :name, presence:true
+  accepts_nested_attributes_for :addresses
+  attr_accessible :name, :addresses, :addresses_attributes
 
   scope :with_name, ->(term) do
     tbl = Family.arel_table
@@ -15,4 +18,5 @@ class Family < ActiveRecord::Base
       with_name( term )
     end
   end
+
 end
