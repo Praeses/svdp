@@ -11,6 +11,6 @@ class CaseFile < ActiveRecord::Base
   end
 
   accepts_nested_attributes_for :needs
-  attr_accessible :number, :date, :comment,:needs,:needs_attributes
+  #attr_accessible :number, :date, :comment,:needs,:needs_attributes
 
 end

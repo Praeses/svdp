@@ -1,4 +1,4 @@
-%h2 Sign in
+%h2= t 'session.sign_in'
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   %div
     = f.label :login
@@ -12,5 +12,6 @@
     %div
       = f.check_box :remember_me
       = f.label :remember_me
-  %div= f.submit "Sign in"
+  %div
+    = f.submit t("session.sign_in")
 = render "devise/shared/links"

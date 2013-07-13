@@ -6,7 +6,7 @@ class Family < ActiveRecord::Base
 
   validates :name, presence:true
   accepts_nested_attributes_for :addresses
-  attr_accessible :name, :addresses, :addresses_attributes
+  #attr_accessible :name, :addresses, :addresses_attributes
 
   scope :with_name, ->(term) do
     tbl = Family.arel_table

@@ -4,13 +4,130 @@
 .head
 { background-color:rgba(10,10,10,0.3); }
 
-.content, .devise
+article, .devise
 { background-color:#D2C6BD }
 
 html
 { background:url(<%= asset_path 'noisy.png' %>) }
 
-.content, .devise
+nav
+{ background-color:green; }
+aside
+{ background-color:yellow; }
+
+#main
+{
+  -webkit-flex-flow:row;
+  flex-flow:row;
+}
+
+#main > nav,
+#main > aside
+{
+  -webkit-flex:1 6 20%;
+  flex:1 6 20%;
+}
+
+#main > article
+{
+  -webkit-flex:3 1 60%;
+  flex:3 1 60%;
+}
+
+#main > nav
+{
+  -webkit-order:1;
+  order:1;
+}
+
+#main > article
+{
+  -webkit-order:2;
+  order:2;
+}
+
+#main > aside
+{
+  -webkit-order:3;
+  order:3;
+}
+
+#main > article,
+#main > nav,
+#main > aside,
+header,
+footer
+{ border-radius:7pt }
+
+header, #main
+{ display: flex; }
+
+
+#main
+{ margin:0px }
+
+#main > article,
+#main > nav,
+#main > aside,
+header,
+footer
+{ margin:4px }
+
+header,
+footer
+{ min-height:100px }
+
+#main
+{ min-height:800px }
+
+#main > nav
+{ order:1 }
+
+#main > article
+{ order:2 }
+
+#main > aside
+{ order:3 }
+
+#main
+{ padding:0px }
+
+#main > article,
+#main > nav,
+#main > aside,
+header,
+footer
+{ padding:5px }
+
+header h1:after
+{ content: "<%= I18n.t('svdp.full') %>"; }
+
+/* Too narrow to support three columns */
+@media all and (max-width: 640px) {
+
+  header h1:after
+  { content: "<%= I18n.t('svdp.short') %>"; }
+
+   #main, #page {
+    -webkit-flex-flow:  column;
+    flex-direction:     column;
+    flex-flow:          column;
+   }
+
+   #main > article, #main > nav, #main > aside {
+    /* Return them to document order */
+    -webkit-order:  0;
+    order:          0;
+   }
+
+   #main > nav, #main > aside, header, footer
+   { min-height: 120px; }
+
+   #main > nav, #main > aside, header, footer
+   { max-height: 50px; }
+ }
+
+.devise
 {border-radius:3px}
 
 tr
@@ -28,13 +145,13 @@ table
 th
 {text-align:left}
 
-.content, .devise
+.devise
 {box-shadow:0px 10px 20px rgba(0,0,0, 0.5)}
 
 html
 { color:#dcdcdc; }
 
-.content, .devise
+#main, .devise
 { color:#222; }
 
 a
@@ -43,7 +160,7 @@ a
 a:hover
 {color: #ccc}
 
-.content a, .devise a
+#main a, .devise a
 {color: #500}
 
 a:hover, .devise a:hover
@@ -59,14 +176,10 @@ table
 th
 {text-align:left}
 
-.content
-{box-shadow:0px 10px 20px rgba(0,0,0, 0.5)}
 
 html
 { color:#dcdcdc; }
 
-.content, .devise
-{ color:#222; }
 
 a
 {color: #fff}
@@ -74,8 +187,6 @@ a
 a:hover
 {color: #ccc}
 
-.content a, .devise a
-{color: #500}
 
 a:hover, .devise a:hover
 {color: #222}
@@ -91,16 +202,10 @@ html
 h1
 { font-family:'Modern Antiqua', cursive; }
 
-.head .logo
-{ float:left }
 
-.head .user
-{ float:right }
 html
 { color:#dcdcdc; }
 
-.content
-{ color:#222; }
 
 a
 {color: #fff}
@@ -108,8 +213,6 @@ a
 a:hover
 {color: #ccc}
 
-.content a
-{color: #500}
 
 a:hover
 {color: #222}
@@ -122,48 +225,25 @@ html
 h1
 { font-family:'Modern Antiqua', cursive; }
 
-.head .logo
-{ float:left }
-
-.head .user
-{ float:right }
 
 .head
 {padding: 1em }
 
-.content, .devise
+.devise
 {padding: 2em }
 
 .edit_group
 {padding:3em 0 2em 0}
 
+.devise, header > div
+{margin:auto;}
+
+.devise, header > div.logo
+{margin:inherit;}
+
+
 .devise
-{margin:auto}
-
-.content
-{margin-top: 15em }
-
-.devise
-{margin-top: 10em }
-
-.head,
-.content
-{position: absolute }
-
-.head
-{ top:0 }
-
-.head
-{ left:0 }
-
-.head
-{ right:0 }
-
-.content
-{ left:10em }
-
-.content
-{ right:10em }
+{margin-top: 3em }
 
 .devise
 { width: 40em }

@@ -27,3 +27,10 @@ en:
   common:
     logout: 'Logout'
     login: 'Login'
+  session:
+    sign_in: 'Sign In'
+    sign_up: 'Sign Up'
+    forgot_password: 'Forgot your password?'
+    no_confirmation: "Didn't receive confirmation instructions"
+    no_unlock: "Didn't receive unlock instructions?"
+    sign_in_with: 'Sign in with'

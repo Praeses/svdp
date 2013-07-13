@@ -9,7 +9,8 @@ gem 'devise'
 gem 'haml-rails'
 
 gem 'puma'
-gem 'protected_attributes'
+#gem 'protected_attributes'
+gem 'grape'
 
 gem 'sass-rails', '~> 4.0.0.rc1'
 gem 'uglifier', '>= 1.3.0'
