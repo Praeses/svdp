@@ -1,8 +1,9 @@
 !!!
 %html
   %head
-    %title svdp
-    %link{:href => "https://fonts.googleapis.com/css?family=Modern+Antiqua|Donegal+One", :rel => "stylesheet", :type => "text/css"}/
+    %title= t('svdp.short')
+    %link{:href => "https://fonts.googleapis.com/css?family=Modern+Antiqua|Donegal+One&subset=latin", :rel => "stylesheet", :type => "text/css"}
+
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -13,12 +14,12 @@
         %a{:href => "/" }
           = image_tag 'logo.png'
 
-      %h1= t "svdp"
+      %h1= t 'svdp.full'
 
       - if user_signed_in?
         .user{'data-no-turbolink' => true}
           %span.display= current_user.display_name
-          = link_to t('Logout'), destroy_user_session_path, :method => :delete, :class => 'logout'
+          = link_to t(:logout), destroy_user_session_path, :method => :delete, :class => 'logout'
 
     .content
       %p.notice= notice

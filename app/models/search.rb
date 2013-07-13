@@ -1,9 +1,5 @@
 class Search < ActiveRecord::Base
 
-  def threads
-    @threads ||= []
-  end
-
   def results
     @results ||= {}
   end
@@ -13,17 +9,11 @@ class Search < ActiveRecord::Base
   end
 
   def call
-    klasses.map {|model| search_klass model }
-    threads.each(&:join)
-    results
+    klasses.each {|model| search_klass model } and results
   end
 
   def search_klass model
-    threads << Thread.new do
-      ActiveRecord::Base.connection_pool.with_connection do
-        results[model] = model.search(term)
-      end
-    end
+    results[model] = model.search(term)
   end
 
 end

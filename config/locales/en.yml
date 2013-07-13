@@ -21,7 +21,9 @@
 
 en:
   hello: "Hello world"
-  svdp: "The Society of St. Vincent de Paul"
+  svdp:
+    full: "The Society of St. Vincent de Paul"
+    short: "svdp"
   common:
     logout: 'Logout'
     login: 'Login'
