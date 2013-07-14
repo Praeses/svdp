@@ -1,24 +1,42 @@
-.head
-{ background-color:#111; }
-
-.head
-{ background-color:rgba(10,10,10,0.3); }
+$white:   white;
+$black:   black;
+$first:   #0177BD;
+$second:  #FFBB00;
+$third:   #FF3D00;
+$fourth:  #004D7B;
+$error:   #500000;
 
 article, .devise
-{ background-color:#D2C6BD }
+{ background-color:$fourth; }
+
+nav, aside
+{ background-color:darken($white, 15%); }
+
+nav > a
+{ background-color:$second; }
+
+
+aside > a,
+nav > a:hover
+{ background-color:$third; }
+
+footer
+{ background-color:$first; }
 
 html
 { background:url(<%= asset_path 'noisy.png' %>) }
 
-nav
-{ background-color:green; }
-aside
-{ background-color:yellow; }
 
 #main
 {
   -webkit-flex-flow:row;
   flex-flow:row;
+}
+
+nav {
+  -webkit-flex-flow:  column;
+  flex-direction:     column;
+  flex-flow:          column;
 }
 
 #main > nav,
@@ -52,30 +70,21 @@ aside
   order:3;
 }
 
-#main > article,
-#main > nav,
-#main > aside,
-header,
-footer
-{ border-radius:7pt }
+article, footer
+{border-top: 3px solid $second }
 
-header, #main
+nav
+{border-top: 3px solid $third }
+
+aside
+{border-top: 3px solid $fourth }
+
+header, #main, nav
 { display: flex; }
 
-
-#main
-{ margin:0px }
-
-#main > article,
-#main > nav,
-#main > aside,
 header,
 footer
-{ margin:4px }
-
-header,
-footer
-{ min-height:100px }
+{ min-height:110px }
 
 #main
 { min-height:800px }
@@ -89,24 +98,36 @@ footer
 #main > aside
 { order:3 }
 
-#main
-{ padding:0px }
-
-#main > article,
-#main > nav,
-#main > aside,
-header,
-footer
-{ padding:5px }
-
 header h1:after
-{ content: "<%= I18n.t('svdp.full') %>"; }
+{ content: attr(full); }
+
+@media all and (max-width: 768px) {
+  header h1:after
+  { content: attr(medium); }
+}
 
 /* Too narrow to support three columns */
 @media all and (max-width: 640px) {
 
+  header .logo
+  {
+    -webkit-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
+  }
+
   header h1:after
-  { content: "<%= I18n.t('svdp.short') %>"; }
+  { text-transform: uppercase; }
+
+  header h1:after
+  { content: attr(short); }
+
+  nav {
+    -webkit-flex-flow:  row;
+    flex-direction:     row;
+    flex-flow:          row;
+  }
+  nav > a
+  { max-height: 20px; }
 
    #main, #page {
     -webkit-flex-flow:  column;
@@ -121,14 +142,11 @@ header h1:after
    }
 
    #main > nav, #main > aside, header, footer
-   { min-height: 120px; }
+   { min-height: 90px; }
 
    #main > nav, #main > aside, header, footer
    { max-height: 50px; }
  }
-
-.devise
-{border-radius:3px}
 
 tr
 {border-bottom:1px solid #aaa}
@@ -148,92 +166,69 @@ th
 .devise
 {box-shadow:0px 10px 20px rgba(0,0,0, 0.5)}
 
-html
-{ color:#dcdcdc; }
-
-#main, .devise
-{ color:#222; }
+html, article, #main, .devise, header a
+{ color:$white; }
 
 a
-{color: #fff}
+{ color: $black;}
 
 a:hover
-{color: #ccc}
+{color: $fourth; }
 
-#main a, .devise a
-{color: #500}
+a:hover
+{text-decoration: underline;}
 
-a:hover, .devise a:hover
-{color: #222}
+a
+{text-decoration: none;}
 
-a {text-decoration: none}
-
-html
-{ font-family:'Donegal One', serif; }
 table
-{border-collapse:collapse}
+{border-collapse:collapse;}
 
 th
 {text-align:left}
 
 
 html
-{ color:#dcdcdc; }
-
-
-a
-{color: #fff}
-
-a:hover
-{color: #ccc}
-
-
-a:hover, .devise a:hover
-{color: #222}
-
-a {text-decoration: none}
-
-.devise .logo
-{float:right}
-
-html
 { font-family:'Donegal One', serif; }
+
+body
+{ font-size: 14px; }
+
+body
+{ line-height: 20px; }
 
 h1
 { font-family:'Modern Antiqua', cursive; }
 
 
-html
-{ color:#dcdcdc; }
 
+#main > article,
+#main > nav,
+#main > aside,
+nav > a,
+header,
+footer
+{ padding:5px }
 
-a
-{color: #fff}
-
-a:hover
-{color: #ccc}
-
-
-a:hover
-{color: #222}
-
-a {text-decoration: none}
-
-html
-{ font-family:'Donegal One', serif; }
-
-h1
-{ font-family:'Modern Antiqua', cursive; }
-
-
-.head
-{padding: 1em }
+#main
+{ padding:0px }
 
 .devise
 {padding: 2em }
 
 .edit_group
 {padding:3em 0 2em 0}
+
+#main
+{ margin:0px }
+
+#main > article,
+#main > nav,
+#main > aside,
+nav > a,
+header,
+footer
+{ margin:4px }
 
 .devise, header > div
 {margin:auto;}
@@ -244,6 +239,9 @@ h1
 
 .devise
 {margin-top: 3em }
+
+body
+{ margin-bottom: 10px; }
 
 .devise
 { width: 40em }

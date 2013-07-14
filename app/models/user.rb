@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   #
   # @return <Boolean>
   def full_name?
-    full_name.blank?
+    !full_name.blank?
   end
 
 
@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   #
   # @return <String> first + last
   def full_name
-   [ first_name, last_name ].compact.join ' '
+   [ first_name, last_name ].compact.join(' ').strip
   end
 
 
@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   #
   # @return <String>
   def display_name
-    full_name? ? full_name : email
+    full_name? ? full_name : username
   end
 
 end

@@ -1,3 +1,21 @@
 // Place all the styles related to the searches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#search {
+  form {
+    display: flex;
+  }
+
+  form {
+    -webkit-flex-flow:row;
+    flex-flow:row;
+  }
+
+  input
+  { flex: 1 1 auto; }
+
+  input[type='submit']
+  { max-width: 100px; }
+}
+

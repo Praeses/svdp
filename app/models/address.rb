@@ -35,12 +35,14 @@ class Address < ActiveRecord::Base
 
   class << self
     def search term
-      with_line_1(term) +
-      with_line_2(term) +
-      with_line_3(term) +
-      with_city(term)   +
-      with_state(term)  +
-      with_zip(term)
+      ids = with_line_1(term).pluck(:id) +
+      with_line_2(term).pluck(:id) +
+      with_line_3(term).pluck(:id) +
+      with_city(term).pluck(:id)   +
+      with_state(term).pluck(:id)  +
+      with_zip(term).pluck(:id)
+
+      find ids
     end
   end
 

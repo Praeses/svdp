@@ -24,7 +24,7 @@ class Person < ActiveRecord::Base
 
   class << self
     def search term
-      with_first(term) + with_last(term) + with_phone(term)
+      find(with_first(term).pluck(:id) + with_last(term).pluck(:id) + with_phone(term).pluck(:id))
     end
   end
 
@@ -32,7 +32,4 @@ class Person < ActiveRecord::Base
     [first_name, last_name].join(' ')
   end
 
-  def family_to_s
-    family.to_s
-  end
 end

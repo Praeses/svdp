@@ -1,16 +1,13 @@
 #search
-  = form_for Search.new do |f|
-    = f.search_field :term
-    = f.submit
+  = render 'form'
 
-%ul
-  - @results.each do |key,values|
-    - next if values.empty?
-    %li
-      %h3= key.to_s
-      %ul
-        - values.each do |val|
-          %li= val.to_s
-          %li== Family:  #{val.try :family_to_s}
-          %li== Members: #{val.try :persion_to_s}
-          %li== Address: #{val.try :address_to_s}
+  %h2== Results for '#{params[:term]}'
+  %ul
+    - @results.each do |val|
+      %li
+        %label== Family Name: #{val.name}
+        %label Members:
+        %ul
+        - val.people.each do |person|
+          %li= person.to_s
+        %label Address:

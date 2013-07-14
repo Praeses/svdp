@@ -23,18 +23,4 @@ class Family < ActiveRecord::Base
     name
   end
 
-  def extra_to_s
-  end
-
-  def family_to_s
-    name
-  end
-
-  def persion_to_s
-    people.map(&:to_s).join(',')
-  end
-
-  def address_to_s
-    primay_address.to_s
-  end
 end

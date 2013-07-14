@@ -15,12 +15,12 @@
           = image_tag 'logo.png'
 
       .title
-        %h1
+        %h1{ full: t('svdp.full'), medium: t('svdp.medium'), short: t('svdp.short') }
 
       - if user_signed_in?
         .user{'data-no-turbolink' => true}
           %span.display= current_user.display_name
-          = link_to t(:logout), destroy_user_session_path, :method => :delete, :class => 'logout'
+          = link_to t("common.logout"), destroy_user_session_path, :method => :delete, :class => 'logout'
 
     #main
       %article
@@ -28,6 +28,8 @@
         %p.alert= alert
         = yield
       %nav
+        = link_to t('search.link'), searches_path
+        = link_to t(:add_family), new_family_path
         = yield :nav
       %aside
         = yield :aside
