@@ -7,7 +7,7 @@ class SearchesController < ApplicationController
   end
 
   def show
-    @search = Search.where(term: params[:term]).first
+    @search = Search.where(term: params[:term]).first_or_create
     @results = @search.call()
 
     respond_to do |format|

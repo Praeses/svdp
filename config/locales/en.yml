@@ -24,6 +24,7 @@ en:
     link: "Search for Family"
     field: "Enter search here..."
     now: "Find Family"
+    quick: "Search for: "
   add_family: "Create new Family"
   svdp:
     full: "The Society of St. Vincent de Paul"

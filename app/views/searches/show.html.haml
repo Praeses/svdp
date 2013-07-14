@@ -5,9 +5,10 @@
   %ul
     - @results.each do |val|
       %li
-        %label== Family Name: #{val.name}
-        %label Members:
+        %h4== Family Name: #{val.name}
+        %strong Members:
         %ul
         - val.people.each do |person|
           %li= person.to_s
-        %label Address:
+        %strong Address:
+        %hr

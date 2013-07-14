@@ -12,13 +12,14 @@ article, .devise
 nav, aside
 { background-color:darken($white, 15%); }
 
-nav > a
+nav > a,
+aside > a:hover
 { background-color:$second; }
-
 
 aside > a,
 nav > a:hover
 { background-color:$third; }
+
 
 footer
 { background-color:$first; }
@@ -33,7 +34,7 @@ html
   flex-flow:row;
 }
 
-nav {
+nav, aside {
   -webkit-flex-flow:  column;
   flex-direction:     column;
   flex-flow:          column;
@@ -71,15 +72,15 @@ article
 }
 
 article, footer
-{border-top: 3px solid $second }
+{border-top: 10px solid $second }
 
 nav
-{border-top: 3px solid $third }
+{border-top: 10px solid $third }
 
 aside
-{border-top: 3px solid $fourth }
+{border-top: 10px solid $fourth }
 
-header, #main, nav
+header, #main, nav, aside
 { display: flex; }
 
 header,
@@ -121,12 +122,13 @@ header h1:after
   header h1:after
   { content: attr(short); }
 
-  nav {
+  nav, aside {
     -webkit-flex-flow:  row;
     flex-direction:     row;
     flex-flow:          row;
   }
   nav > a
+  aside > a
   { max-height: 20px; }
 
    #main {
@@ -209,6 +211,7 @@ h1
 #main > nav,
 #main > aside,
 nav > a,
+aside > a,
 header,
 footer
 { padding:5px }
@@ -229,6 +232,7 @@ footer
 #main > nav,
 #main > aside,
 nav > a,
+aside > a,
 header,
 footer
 { margin:4px }

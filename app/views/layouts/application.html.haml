@@ -32,6 +32,8 @@
         = link_to t(:add_family), new_family_path
         = yield :nav
       %aside
+        - %w(john smith bossier shreveport louisiana).each do |term|
+          = link_to "#{t('search.quick')} '#{term.titlecase}'", search_path(term.titlecase)
         = yield :aside
 
     %footer
