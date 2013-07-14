@@ -39,14 +39,14 @@ nav {
   flex-flow:          column;
 }
 
-#main > nav,
-#main > aside
+nav,
+aside
 {
   -webkit-flex:1 6 20%;
   flex:1 6 20%;
 }
 
-#main > article
+article
 {
   -webkit-flex:3 1 60%;
   flex:3 1 60%;
@@ -129,7 +129,7 @@ header h1:after
   nav > a
   { max-height: 20px; }
 
-   #main, #page {
+   #main {
     -webkit-flex-flow:  column;
     flex-direction:     column;
     flex-flow:          column;
@@ -143,6 +143,9 @@ header h1:after
 
    #main > nav, #main > aside, header, footer
    { min-height: 90px; }
+
+   article
+   { flex: none;}
 
    #main > nav, #main > aside, header, footer
    { max-height: 50px; }

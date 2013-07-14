@@ -24,7 +24,7 @@ class Person < ActiveRecord::Base
 
   class << self
     def search term
-      find(with_first(term).pluck(:id) + with_last(term).pluck(:id) + with_phone(term).pluck(:id))
+      where id: (with_first(term).pluck(:id) + with_last(term).pluck(:id) + with_phone(term).pluck(:id))
     end
   end
 

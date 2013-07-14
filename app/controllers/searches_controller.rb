@@ -10,9 +10,6 @@ class SearchesController < ApplicationController
     @search = Search.where(term: params[:term]).first
     @results = @search.call()
 
-    require 'result'
-    @results.each{ |r| r.extend Result }
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @results }
