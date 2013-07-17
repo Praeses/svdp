@@ -1,12 +1,13 @@
 !!!
-%html
+%html{ class:'no-js' }
   %head
     %title= t('svdp.short')
-    %link{:href => "https://fonts.googleapis.com/css?family=Modern+Antiqua|Donegal+One&subset=latin", :rel => "stylesheet", :type => "text/css"}
+    = google_webfonts_init({google:['Modern Antiqua','Donegal One'] })
 
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
+
   %body
 
     %header
@@ -28,10 +29,12 @@
         %p.alert= alert
         = yield
       %nav
+        %h2 Menu
         = link_to t('search.link'), searches_path
         = link_to t(:add_family), new_family_path
         = yield :nav
       %aside
+        %h2 Resent Searches
         - %w(john smith bossier shreveport louisiana).each do |term|
           = link_to "#{t('search.quick')} '#{term.titlecase}'", search_path(term.titlecase)
         = yield :aside

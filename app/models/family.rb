@@ -8,15 +8,8 @@ class Family < ActiveRecord::Base
   accepts_nested_attributes_for :addresses
   #attr_accessible :name, :addresses, :addresses_attributes
 
-  scope :with_name, ->(term) do
-    tbl = Family.arel_table
-    Family.where(tbl[:name].matches("%#{term}%"))
-  end
-
-  class << self
-    def search term
-      with_name( term )
-    end
+  def to_family
+    self
   end
 
   def to_s
