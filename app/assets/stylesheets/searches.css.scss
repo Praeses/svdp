@@ -4,6 +4,7 @@
 
 #search {
   form {
+    display: -webkit-flex;
     display: flex;
   }
 
@@ -13,7 +14,10 @@
   }
 
   input
-  { flex: 1 1 auto; }
+  {
+    -web-kit-flex: 1 1 auto;
+    flex: 1 1 auto;
+  }
 
   input[type='submit']
   { max-width: 100px; }
