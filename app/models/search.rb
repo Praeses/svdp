@@ -1,7 +1,7 @@
 class Search < ActiveRecord::Base
 
   def klasses
-    [ Family, Person, Address ]
+    [ Family, Person, Address, CaseFile ]
   end
 
   def call

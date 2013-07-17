@@ -5,20 +5,19 @@
   %ul
     - @results.each do |val|
       %li
-        %h4
+        %h5
           == The #{val.name} Family
           %a{ href: family_url(val) } (view family)
-        %h4 Physical Address:
+        %h5 Physical Address:
         %address
           %em= val.primay_address.line_1
           %em= val.primay_address.line_2
           %em= val.primay_address.line_3
           %em== #{val.primay_address.city}, #{val.primay_address.state} #{val.primay_address.zip}
-        %h4 Members
-        %ul
-        - val.people.each do |person|
-          %li= person.to_s
-
-        %h4 Needs:
-        %h4 Actions:
+        %h5== #{val.people.count} Family Members
+        %h5== Case File Count: #{val.case_files.count}
+        - unless val.case_files.count.zero?
+          %h5== Last Case File Count: #{val.case_files.last.date}
+          %h5 Needs:
+          %h5 Actions:
         %hr
