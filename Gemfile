@@ -10,7 +10,7 @@ gem 'haml-rails'
 
 gem 'puma'
 #gem 'protected_attributes'
-gem 'grape'
+gem 'textacular'
 
 gem 'bourbon'
 gem 'sass-rails', '~> 4.0.0.rc1'

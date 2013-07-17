@@ -13,7 +13,8 @@ class Search < ActiveRecord::Base
 
   def family_ids
     klasses.map do |field, models|
-      models.map{ |model| model.search(term).pluck(field) }
+      #models.map{ |model| model.search(term).pluck(field) }
+      models.map{ |model| model.basic_search(term).pluck(field) }
     end.flatten
   end
 
