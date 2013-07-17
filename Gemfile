@@ -10,7 +10,7 @@ gem 'haml-rails'
 
 gem 'puma'
 #gem 'protected_attributes'
-gem 'grape'
+gem 'textacular'
 
 gem 'bourbon'
 gem 'google-webfonts-rails'
