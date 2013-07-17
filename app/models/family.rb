@@ -13,6 +13,10 @@ class Family < ActiveRecord::Base
     Family.where(tbl[:name].matches("%#{term}%"))
   end
 
+  scope :with_address, ->(term) do
+    primay_address.
+  end
+
   class << self
     def search term
       with_name( term )

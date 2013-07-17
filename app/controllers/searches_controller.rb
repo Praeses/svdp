@@ -23,7 +23,7 @@ class SearchesController < ApplicationController
     respond_to do |format|
       if @search.save
         format.html { redirect_to search_url @search.term }
-        format.json { render json: @search, status: :created, location: @search }
+        format.json { render json: @search, status: :created, location: search_url(@search.term) }
       else
         format.html { render action: "new" }
         format.json { render json: @search.errors, status: :unprocessable_entity }
