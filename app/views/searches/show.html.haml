@@ -1,3 +1,22 @@
+= content_for :aside do
+  %em== #{@results.count} Families
+  %em== #{@results.map{|x| x.people.count}.inject(:+)} People
+  %em== #{@results.map{|x| x.case_files.count}.inject(:+)} Case files
+
+  %h2 Last Visited
+  - fam = @results.last
+  %a{ href: family_url(fam), target: '_blank' }
+    %em== The #{fam.name}  Family
+
+  %h2 Most Visited
+  - fam = @results.max{|x| x.case_files.count}
+  %a{ href: family_url(fam), target: '_blank' }
+    %em== The #{fam.name}  Family
+  %h2 Helped By State
+  - @results.group_by{|x| x.primay_address.state}.each do |state,fams|
+    %em== #{state}: #{fams.count} Families
+
+
 #search
   = render 'form'
 
@@ -7,7 +26,7 @@
       %li
         %h5
           == The #{val.name} Family
-          %a{ href: family_url(val) } (view family)
+          %a{ href: family_url(val), target: '_blank' } (view family)
         %h5 Physical Address:
         %address
           %em= val.primay_address.line_1
@@ -16,6 +35,7 @@
           %em== #{val.primay_address.city}, #{val.primay_address.state} #{val.primay_address.zip}
         %h5== #{val.people.count} Family Members
         %h5== Case File Count: #{val.case_files.count}
+        = case_file_link val
         - unless val.case_files.count.zero?
           %h5== Last Case File Count: #{val.case_files.last.date}
           %h5 Needs:

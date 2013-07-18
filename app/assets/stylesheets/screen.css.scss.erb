@@ -25,7 +25,7 @@ footer
 { background-color:$first; }
 
 html
-{ background:url(<%= asset_path 'noisy.png' %>) }
+{ background:url(<%= asset_path 'pattern-inao.png' %>) }
 
 
 #main
@@ -40,11 +40,10 @@ nav, aside {
   flex-flow:          column;
 }
 
-nav,
-aside
+nav, aside
 {
-  -webkit-flex:1 6 20%;
-  flex:1 6 20%;
+  -webkit-flex:1 6 10%;
+  flex:1 6 10%;
 }
 
 article
@@ -80,13 +79,31 @@ nav
 aside
 {border-top: 10px solid $fourth }
 
-header, #main, nav, aside
+nav h2
+{border-bottom: 2px solid $fourth }
+
+aside h2
+{border-bottom: 2px solid $third }
+
+#main, nav, aside
 {
   display: -webkit-flex;
   display: flex;
 }
 
-header,
+header div
+{ display: inline-block; }
+
+header div
+{ vertical-align: top; }
+
+header
+{ clear:both; }
+
+.user
+{ float:right; }
+
+
 footer
 { min-height:110px }
 
@@ -150,7 +167,10 @@ header h1:after
    { min-height: 90px; }
 
    article
-   { flex: none;}
+   {
+     -webkit-flex: none;
+     flex: none;
+   }
 
    #main > nav, #main > aside, header, footer
    { max-height: 50px; }
@@ -171,11 +191,14 @@ table
 th
 {text-align:left}
 
-.devise
+.devise, article, aside, nav,
 {box-shadow:0px 10px 20px rgba(0,0,0, 0.5)}
 
-html, article, #main, .devise, header a
+html, article, #main, .devise
 { color:$white; }
+
+header, h2, aside
+{ color: $black; }
 
 a
 { color: $black;}
@@ -215,7 +238,6 @@ h1
 #main > aside,
 nav > a,
 aside > a,
-header,
 footer
 { padding:5px }
 
@@ -236,7 +258,6 @@ footer
 #main > aside,
 nav > a,
 aside > a,
-header,
 footer
 { margin:4px }
 

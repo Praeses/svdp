@@ -13,10 +13,15 @@
     %header
       .logo
         %a{:href => "/" }
-          = image_tag 'logo.png'
+          = image_tag 'logo_half.png'
 
       .title
         %h1{ full: t('svdp.full'), medium: t('svdp.medium'), short: t('svdp.short') }
+
+      .search
+        = form_for Search.new do |f|
+          = f.search_field :term, { placeholder: t('search.field'), results: 5, autosave: 'family_search' }
+          = f.submit t('search.now')
 
       - if user_signed_in?
         .user{'data-no-turbolink' => true}
@@ -33,11 +38,11 @@
         = link_to t('search.link'), searches_path
         = link_to t(:add_family), new_family_path
         = yield :nav
-      %aside
         %h2 Resent Searches
         - %w(john smith bossier shreveport louisiana).each do |term|
           = link_to "#{t('search.quick')} '#{term.titlecase}'", search_path(term.titlecase)
+      %aside
+        %h2 Dashboard
         = yield :aside
 
     %footer
-      footer
