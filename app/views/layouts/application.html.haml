@@ -21,8 +21,7 @@
       .search
         = form_for Search.new do |f|
           = f.search_field :term, { placeholder: t('search.field'), results: 5, autosave: 'family_search' }
-          = f.submit t('search.now')
-
+          %button.icon-search
       - if user_signed_in?
         .user{'data-no-turbolink' => true}
           %span.display= current_user.display_name
@@ -46,3 +45,6 @@
         = yield :aside
 
     %footer
+      %a{href:'http://glyphicons.com/'} Glyphicons Free
+      licensed under
+      %a{href:'http://creativecommons.org/licenses/by/3.0/'} CC BY 3.0.
