@@ -1,0 +1,53 @@
+nav {
+
+  a, a:before
+  { height: 28px; }
+  a, label
+  { width: 90%; }
+
+  a:before
+  { width: 28px; }
+
+  a
+  { position:relative; }
+
+  a:before
+  { position:absolute; }
+
+  a:before
+  { content:''; }
+
+  a:before
+  { top: 2px; }
+
+  a:before
+  { left: 0px; }
+
+  label
+  { margin-left: 30px; }
+  a
+  { margin: 5px; }
+
+  a:hover
+  { border-bottom: 1px solid black; }
+
+  a:before
+  { background-repeat: no-repeat; }
+
+  a
+  { display: block; }
+  label
+  { display: inline-block; }
+
+  label
+  { vertical-align: center; }
+
+  label:hover
+  { cursor: pointer; }
+
+  .search:before
+  { background-image: url(<%= asset_path('glyphicons_free/glyphicons/png/glyphicons_027_search.png') %>);}
+
+  .add_family:before
+  { background-image: url(<%= asset_path('glyphicons_free/glyphicons/png/glyphicons_190_circle_plus.png') %>);}
+}

@@ -1,95 +1,36 @@
 $white:   white;
 $black:   black;
 $first:   #0177BD;
-$second:  #FFBB00;
-$third:   #FF3D00;
-$fourth:  #004D7B;
-$error:   #500000;
+$second:  #00273D;
+$third:   #132E3D;
+$fourth:  #0157BA;
+$error:   #CB151A;
 
-article, .devise
+.devise
 { background-color:$fourth; }
 
-nav, aside
-{ background-color:darken($white, 15%); }
-
-nav > a,
-aside > a:hover
-{ background-color:$second; }
-
-aside > a,
-nav > a:hover
-{ background-color:$third; }
-
-
-footer
-{ background-color:$first; }
+nav, aside, article, footer
+{ background-color:darken($white, 5%); }
 
 html
 { background:url(<%= asset_path 'pattern-inao.png' %>) }
 
 
-#main
-{
-  -webkit-flex-flow:row;
-  flex-flow:row;
-}
-
-nav, aside {
-  -webkit-flex-flow:  column;
-  flex-direction:     column;
-  flex-flow:          column;
-}
-
-nav, aside
-{
-  -webkit-flex:1 6 10%;
-  flex:1 6 10%;
-}
-
-article
-{
-  -webkit-flex:3 1 60%;
-  flex:3 1 60%;
-}
-
-#main > nav
-{
-  -webkit-order:1;
-  order:1;
-}
-
-#main > article
-{
-  -webkit-order:2;
-  order:2;
-}
-
-#main > aside
-{
-  -webkit-order:3;
-  order:3;
-}
-
 article, footer
 {border-top: 10px solid $second }
 
 nav
-{border-top: 10px solid $third }
+{border-top: 10px solid $fourth }
 
 aside
 {border-top: 10px solid $fourth }
 
 nav h2
-{border-bottom: 2px solid $fourth }
+{border-bottom: 2px solid $third }
 
 aside h2
 {border-bottom: 2px solid $third }
 
-#main, nav, aside
-{
-  display: -webkit-flex;
-  display: flex;
-}
 
 header div
 { display: inline-block; }
@@ -107,17 +48,8 @@ header
 footer
 { min-height:110px }
 
-#main
+#main, nav, article
 { min-height:800px }
-
-#main > nav
-{ order:1 }
-
-#main > article
-{ order:2 }
-
-#main > aside
-{ order:3 }
 
 header h1:after
 { content: attr(full); }
@@ -142,38 +74,6 @@ header h1:after
   header h1:after
   { content: attr(short); }
 
-  nav, aside {
-    -webkit-flex-flow:  row;
-    flex-direction:     row;
-    flex-flow:          row;
-  }
-  nav > a
-  aside > a
-  { max-height: 20px; }
-
-   #main {
-    -webkit-flex-flow:  column;
-    flex-direction:     column;
-    flex-flow:          column;
-   }
-
-   #main > article, #main > nav, #main > aside {
-    /* Return them to document order */
-    -webkit-order:  0;
-    order:          0;
-   }
-
-   #main > nav, #main > aside, header, footer
-   { min-height: 90px; }
-
-   article
-   {
-     -webkit-flex: none;
-     flex: none;
-   }
-
-   #main > nav, #main > aside, header, footer
-   { max-height: 50px; }
  }
 
 tr
@@ -194,14 +94,11 @@ th
 .devise, article, aside, nav,
 {box-shadow:0px 10px 20px rgba(0,0,0, 0.5)}
 
-html, article, #main, .devise
+.devise
 { color:$white; }
 
-header, h2, aside
+html
 { color: $black; }
-
-a
-{ color: $black;}
 
 a:hover
 {color: $fourth; }
@@ -219,23 +116,19 @@ th
 {text-align:left}
 
 
-html
-{ font-family:'Donegal One', serif; }
+html, h1
+{ font-family:'Open Sans Condensed', sans-serif; }
 
 body
-{ font-size: 14px; }
+{ font-size: 16px; }
 
 body
 { line-height: 20px; }
 
-h1
-{ font-family:'Modern Antiqua', cursive; }
 
-
-
-#main > article,
-#main > nav,
-#main > aside,
+article,
+nav,
+aside,
 nav > a,
 aside > a,
 footer
@@ -253,11 +146,8 @@ footer
 #main
 { margin:0px }
 
-#main > article,
-#main > nav,
-#main > aside,
-nav > a,
-aside > a,
+article, aside,
+nav > a, aside > a,
 footer
 { margin:4px }
 
@@ -267,6 +157,8 @@ footer
 .devise, header > div.logo
 {margin:inherit;}
 
+aside, article
+{ margin-left: 12em; }
 
 .devise
 {margin-top: 3em }
@@ -276,6 +168,13 @@ body
 
 .devise
 { width: 40em }
+
+nav
+{ width: 10em; }
+
+nav
+{ position: absolute; }
+
 
 table
 {width:100%}

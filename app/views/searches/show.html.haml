@@ -4,14 +4,16 @@
   %em== #{@results.map{|x| x.case_files.count}.inject(:+)} Case files
 
   %h2 Last Visited
-  - fam = @results.last
-  %a{ href: family_url(fam), target: '_blank' }
-    %em== The #{fam.name}  Family
+  - fam = @results.first
+  - if fam
+    %a{ href: family_url(fam), target: '_blank' }
+      %em== The #{fam.name}  Family
 
   %h2 Most Visited
   - fam = @results.max{|x| x.case_files.count}
-  %a{ href: family_url(fam), target: '_blank' }
-    %em== The #{fam.name}  Family
+  - if fam
+    %a{ href: family_url(fam), target: '_blank' }
+      %em== The #{fam.name} Family #{fam.case_files.count} times
   %h2 Helped By State
   - @results.group_by{|x| x.primay_address.state}.each do |state,fams|
     %em== #{state}: #{fams.count} Families

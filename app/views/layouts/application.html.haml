@@ -2,7 +2,7 @@
 %html{ class:'no-js' }
   %head
     %title= t('svdp.short')
-    = google_webfonts_init({google:['Modern Antiqua','Donegal One'] })
+    = google_webfonts_init({google:['Open+Sans+Condensed:700:latin'] })
 
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
@@ -18,31 +18,32 @@
       .title
         %h1{ full: t('svdp.full'), medium: t('svdp.medium'), short: t('svdp.short') }
 
-      .search
-        = form_for Search.new do |f|
-          = f.search_field :term, { placeholder: t('search.field'), results: 5, autosave: 'family_search' }
-          %button.icon-search
       - if user_signed_in?
         .user{'data-no-turbolink' => true}
           %span.display= current_user.display_name
           = link_to t("common.logout"), destroy_user_session_path, :method => :delete, :class => 'logout'
 
     #main
+      %nav
+        %h2 Menu
+        %a{ href: searches_path, class: 'search' }
+          %label= t('search.link')
+        %a{ href: new_family_path, class: 'add_family' }
+          %label= t(:add_family)
+        = yield :nav
+        %h2 Resent Searches
+        - %w(john smith bossier shreveport louisiana).each do |term|
+          %a{ href: search_path(term.titlecase), class: 'search' }
+            %label== '#{term.titlecase}'
+
+      -#%aside
+        -#%h2 Dashboard
+        -#= yield :aside
+
       %article
         %p.notice= notice
         %p.alert= alert
         = yield
-      %nav
-        %h2 Menu
-        = link_to t('search.link'), searches_path
-        = link_to t(:add_family), new_family_path
-        = yield :nav
-        %h2 Resent Searches
-        - %w(john smith bossier shreveport louisiana).each do |term|
-          = link_to "#{t('search.quick')} '#{term.titlecase}'", search_path(term.titlecase)
-      %aside
-        %h2 Dashboard
-        = yield :aside
 
     %footer
       %a{href:'http://glyphicons.com/'} Glyphicons Free
